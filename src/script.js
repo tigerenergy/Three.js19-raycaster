@@ -10,7 +10,7 @@ import * as dat from 'dat.gui'
 const gui = new dat.GUI()
 
 // Canvas
-const canvas = document.querySelector('canvas.webgl')
+const canvas = document.querySelector('.webgl')
 
 // Scene
 const scene = new THREE.Scene()
@@ -36,6 +36,17 @@ const object3 = new THREE.Mesh(
 object3.position.x = 2
 
 scene.add(object1, object2, object3)
+
+/**
+ * Raycaster
+ */
+ const raycaster = new THREE.Raycaster()
+
+ const rayOrigin = new THREE.Vector3(- 3, 0, 0)
+ const rayDirection = new THREE.Vector3(10, 0, 0)
+ rayDirection.normalize()
+ 
+ raycaster.set(rayOrigin, rayDirection)
 
 /**
  * Sizes
